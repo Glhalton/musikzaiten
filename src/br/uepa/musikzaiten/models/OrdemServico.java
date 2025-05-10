@@ -15,12 +15,19 @@ public class OrdemServico {
     private String modeloInstrumento;
     private String diagnosticoInstrumento;
     private double preco;
-
     private OrdemServicoStatus status;
 
     private Luthier luthier;
 
-    public OrdemServico(int id, String nomeCliente, String nomeTecnico, LocalDate dataGeracao, String nomeInstrumento, String modeloInstrumento, String diagnosticoInstrumento, double preco, OrdemServicoStatus status){
+    public OrdemServico(int id,
+                        String nomeCliente,
+                        String nomeTecnico,
+                        LocalDate dataGeracao,
+                        String nomeInstrumento,
+                        String modeloInstrumento,
+                        String diagnosticoInstrumento,
+                        double preco,
+                        OrdemServicoStatus status){
         this.id = id;
         this.nomeCliente = nomeCliente;
         this.nomeTecnico = nomeTecnico;

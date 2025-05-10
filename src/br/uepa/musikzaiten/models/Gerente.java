@@ -6,6 +6,10 @@ public class Gerente extends Usuario {
 
     private ArrayList<Relatorio> relatorios = new ArrayList<>();
 
+    public Gerente(int id, String nome, String cpf, String email){
+        super(id, nome, cpf, email);
+    }
+
     public void consultarProduto(Produto produto){
 
     }

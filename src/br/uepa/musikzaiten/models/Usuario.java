@@ -7,6 +7,12 @@ public class Usuario {
     private String cpf;
     private String email;
 
+    public Usuario(int id, String nome, String cpf, String email) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+    }
 
     public int getId(){
         return id;

@@ -5,6 +5,10 @@ public class Estoquista extends Usuario {
         Estoque.consultarProduto();
     }
 
+    public Estoquista(int id, String nome, String cpf, String email){
+        super(id, nome, cpf, email);
+    }
+
     public void removerProduto(int id){
         Estoque.removerProduto(id);
         System.out.println("Produto removido com sucesso");

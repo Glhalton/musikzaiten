@@ -5,6 +5,14 @@ import java.util.ArrayList;
 public class Estoque {
     private static ArrayList<Produto> produtos = new ArrayList<>();
 
+    public static ArrayList<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public static void setProdutos(ArrayList<Produto> produtos) {
+        Estoque.produtos = produtos;
+    }
+
     public static void cadastrarProduto(Produto produto){
         produtos.add(produto);
     }
@@ -14,8 +22,12 @@ public class Estoque {
     }
 
     public static void consultarProduto(){
-        for(Produto produto : produtos){
-            System.out.println(produto);
+        if(produtos.isEmpty()){
+            System.out.println("Nenhum produto encontrado");
+        } else{
+            for(Produto produto : produtos){
+                System.out.println(produto);
+            }
         }
     }
 
