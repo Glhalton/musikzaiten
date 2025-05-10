@@ -15,12 +15,12 @@ public class OrdemServico {
     private String modeloInstrumento;
     private String diagnosticoInstrumento;
     private double preco;
-    private String status;
+
+    private OrdemServicoStatus status;
 
     private Luthier luthier;
-    private OrdemServicoStatus ordemServicoStatus;
 
-    public OrdemServico(int id, String nomeCliente, String nomeTecnico, LocalDate dataGeracao, String nomeInstrumento, String modeloInstrumento, String diagnosticoInstrumento, double preco, String status){
+    public OrdemServico(int id, String nomeCliente, String nomeTecnico, LocalDate dataGeracao, String nomeInstrumento, String modeloInstrumento, String diagnosticoInstrumento, double preco, OrdemServicoStatus status){
         this.id = id;
         this.nomeCliente = nomeCliente;
         this.nomeTecnico = nomeTecnico;
@@ -95,11 +95,11 @@ public class OrdemServico {
         this.preco = preco;
     }
 
-    public String getStatus() {
+    public OrdemServicoStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrdemServicoStatus status){
         this.status = status;
     }
 

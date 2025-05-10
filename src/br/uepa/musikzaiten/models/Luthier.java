@@ -20,8 +20,8 @@ public class Luthier extends Usuario {
                     Nome do Instrumento: %s
                     Modelo do Instrumento: %s
                     Diagnostico: %s
-                    Preço final: %d
-                    Status:
+                    Preço final: %.2f
+                    Status: %s
                     """, ordemServico.getId(),
                     ordemServico.getNomeCliente(),
                     ordemServico.getNomeTecnico(),
@@ -29,7 +29,10 @@ public class Luthier extends Usuario {
                     ordemServico.getNomeInstrumento(),
                     ordemServico.getModeloInstrumento(),
                     ordemServico.getDiagnosticoInstrumento(),
-                    ordemServico.getPreco());
+                    ordemServico.getPreco(),
+                    ordemServico.getStatus());
+
+            System.out.println();
         }
     }
 
