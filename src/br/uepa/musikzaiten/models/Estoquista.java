@@ -16,8 +16,9 @@ public class Estoquista extends Usuario {
         System.out.println();
     }
 
-    public void editarProduto(int id){
-
+    public void editarProduto(int id, String nome, double preco, int quantidade){
+        Estoque.editarProduto(id, nome, preco, quantidade);
+        System.out.printf("O produto %d foi editado com sucesso", id);
     }
 
 

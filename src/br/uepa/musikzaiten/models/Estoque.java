@@ -19,10 +19,12 @@ public class Estoque {
         }
     }
 
-    public static void editarProduto(int id){
+    public static void editarProduto(int id, String nome, double preco, int quantidade){
         for(Produto produto : produtos){
             if(produto.getId() == id){
-                System.out.print("Digite o nome do produto: ");
+                produto.setNome(nome);
+                produto.setPreco(preco);
+                produto.setQuantidadeEstoque(quantidade);
             }
         }
     }

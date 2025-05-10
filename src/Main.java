@@ -43,34 +43,51 @@ public class Main {
                         ler.nextLine();
                         switch(opcao1_1) {
                             case 1:
+
                                 System.out.print("Digite o nome do produto: ");
                                 String nomeProduto = ler.nextLine();
                                 System.out.print("Digite o preco do produto: ");
                                 double precoProduto = ler.nextDouble();
-
                                 System.out.print("Digite a quantidade no estoque ");
                                 int quantidadeEstoque= ler.nextInt();
-;
 
                                 estoquista.cadastrarProduto(new Produto(idProd,nomeProduto, precoProduto, quantidadeEstoque));
 
                                 idProd++;
 
                                 break;
+
                             case 2:
 
                                 System.out.print("Digite o id do produto a ser removido: ");
                                 int idProduto = ler.nextInt();
+
                                 estoquista.removerProduto(idProduto);
+
                                 break;
 
                             case 3:
+
+                                System.out.print("Digite o id do produto a ser editado: ");
+                                int idProdutoEditado = ler.nextInt();
+                                ler.nextLine();
+                                System.out.print("Digite o nome do produto: ");
+                                String nomeProdutoEditado = ler.nextLine();
+                                System.out.print("Digite o preco do produto: ");
+                                double precoProdutoEditado = ler.nextDouble();
+                                System.out.print("Digite a quantidade no estoque ");
+                                int quantidadeEstoqueEditado= ler.nextInt();
+
+                                estoquista.editarProduto(idProdutoEditado, nomeProdutoEditado, precoProdutoEditado, quantidadeEstoqueEditado);
                                 break;
+
                             case 4:
+
                                 System.out.println();
                                 estoquista.consultarProduto();
                                 System.out.println();
                                 break;
+
                             case 5:
                                 break;
                             default:
