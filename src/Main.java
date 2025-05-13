@@ -86,6 +86,7 @@ public class Main {
                                 System.out.print("Digite o id do produto a ser editado: ");
                                 int idProdutoEditado = ler.nextInt();
                                 ler.nextLine();
+
                                 System.out.print("Digite o nome do produto: ");
                                 String nomeProdutoEditado = ler.nextLine();
                                 System.out.print("Digite o preco do produto: ");
