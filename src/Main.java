@@ -7,17 +7,19 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Luthier luthier = new Luthier(4, "Sunny Suzuki", "444.444.444-44", "Sunny Suzuki");
-        Estoquista estoquista = new Estoquista(3, "Katyusha Pravda", "333.333.333-33", "KatyushaPravda@gmail.com");
-        Vendedor vendedor = new Vendedor(2, "Mari Suzuki", "222.222.222-22", "MariSuzuki@gmail.com");
-        Gerente gerente = new Gerente( 1, "Arthur Morgan", "111.111.111-11", "ArthurMorgan@gmail.com");
+        Luthier luthier = new Luthier(4, "Aubrey Strawberry", "444.444.444-44", "(94) 98438-9699");
+        Estoquista estoquista = new Estoquista(3, "Katyusha Pravda", "333.333.333-33", "(91) 99292-7905");
+        Vendedor vendedor = new Vendedor(2, "Mari Suzuki", "222.222.222-22", "(94) 99667-3561");
+        Gerente gerente = new Gerente( 1, "Sunny Suzuki", "111.111.111-11", "(94) 99234-2345");
 
         Scanner ler = new Scanner(System.in);
 
         int idOS = 1;
         int idProd = 1;
         int idVend = 1;
+        int idProdVend = 1;
         int escolha = 0;
+
 
         while(escolha != 4){
 
@@ -87,18 +89,8 @@ public class Main {
                                 int idProdutoEditado = ler.nextInt();
                                 ler.nextLine();
 
-                                System.out.print("Digite o nome do produto: ");
-                                String nomeProdutoEditado = ler.nextLine();
-                                System.out.print("Digite o preco do produto: ");
-                                double precoProdutoEditado = ler.nextDouble();
-                                System.out.print("Digite a quantidade no estoque ");
-                                int quantidadeEstoqueEditado= ler.nextInt();
+                                estoquista.editarProduto(idProdutoEditado);
 
-                                estoquista.editarProduto(
-                                        idProdutoEditado,
-                                        nomeProdutoEditado,
-                                        precoProdutoEditado,
-                                        quantidadeEstoqueEditado);
                                 break;
 
                             case 4:
@@ -157,17 +149,17 @@ public class Main {
                                             System.out.println("Digite o id do produto: ");
                                             int idProduto = ler.nextInt();
                                             venda.adicionarProduto(idProduto);
+
                                             break;
 
                                         case 2:
-                                            System.out.println("Digite o id do produto a ser removido: ");
-                                            idProduto = ler.nextInt();
-                                            venda.removerProduto(idProduto);
+                                            System.out.println("Digite a posição do produto a ser removido: ");
+                                            int posicaoProduto = ler.nextInt();
+                                            venda.removerProduto(posicaoProduto);
 
                                             break;
 
                                         case 3:
-
                                             venda.listarProdutos();
                                             break;
 
@@ -194,14 +186,15 @@ public class Main {
                     break;
                 case 3:
                     int opcao3_1 = 0;
-                    while(opcao3_1 != 3){
+                    while(opcao3_1 != 4){
                         System.out.println("""
                             ================================
-                               MENU DE ORDEM DE SERVIÇOS
+                               MENU DE ORDENS DE SERVIÇO
                             ================================
                             [1] Gerar Ordem de Serviço
                             [2] Consultar Ordens de Serviços
-                            [3] Voltar ao menu principal
+                            [3] Editar Ordens de Serviços
+                            [4] Voltar ao menu principal
                             ================================""");
                         opcao3_1 = ler.nextInt();
                         ler.nextLine();
@@ -209,8 +202,8 @@ public class Main {
                             case 1:
                                 System.out.print("Digite o nome do cliente: ");
                                 String nomeCliente = ler.nextLine();
-                                System.out.print("Digite o nome do Tecnico: ");
-                                String nomeTecnico = ler.nextLine();
+                                System.out.print("Digite o contato do cliente: ");
+                                String contatoCliente = ler.nextLine();
                                 System.out.print("Digite o nome do Instrumento: ");
                                 String nomeInstrumento = ler.nextLine();
                                 System.out.print("Digite o nome do Modelo do Instrumento: ");
@@ -228,13 +221,14 @@ public class Main {
                                 luthier.gerarOrdemServico(new OrdemServico(
                                         idOS,
                                         nomeCliente,
-                                        nomeTecnico,
+                                        luthier.getNome(),
                                         LocalDate.now(),
                                         nomeInstrumento,
                                         modeloInstrumento,
                                         diagnostico,
                                         valor,
-                                        status));
+                                        status,
+                                        contatoCliente));
 
                                 idOS++;
 
@@ -243,12 +237,17 @@ public class Main {
                                 luthier.ConsultarOrderServico();
                                 break;
                             case 3:
+                                System.out.print("Digite o id da ordem de serviço: ");
+                                int idOrdemServico = ler.nextInt();
+                                luthier.editarOrdemServico(idOrdemServico);
+                                System.out.println();
+                                break;
+                            case 4:
                                 break;
                             default:
                                 System.out.println("Escolha uma opção válida");
 
                         }
-
                     }
                     break;
                 case 4:

@@ -7,15 +7,16 @@ public class Venda {
     private int id;
     private int idVendedor;
     private LocalDate dataVenda;
-
     ArrayList<Produto> produtosVenda = new ArrayList<>();
 
+    //------Construtor-------
     public Venda(int id, int idVendedor, LocalDate dataVenda){
         this.id = id;
         this.idVendedor = idVendedor;
         this.dataVenda = dataVenda;
     }
 
+    //------Gets-e-Sets-------
     public int getId() {
         return id;
     }
@@ -40,6 +41,9 @@ public class Venda {
         this.dataVenda = dataVeda;
     }
 
+
+    //------------------Métodos-------------------
+    //----------Adicionar-produto-na-venda---------
     public void adicionarProduto(int id){
         int count = 0;
         for(Produto produto : Estoque.getProdutos()){
@@ -54,20 +58,19 @@ public class Venda {
         }
     }
 
-    public void removerProduto(int id){
-        int count = 0;
-        for(Produto produto :produtosVenda ){
-            if(produto.getId() == id){
-                produtosVenda.remove(produto);
-                System.out.println("Produto removido da venda!");
-                count = 1;
-            }
-            if(count == 0){
-                System.out.println("Produto não encontrado na venda!");
-            }
+    //----------Remover-produto-da-venda---------
+    public void removerProduto(int posicao){
+        posicao -= 1;
+        if(posicao >= 0 && posicao < produtosVenda.size()){
+            produtosVenda.remove(posicao);
+            System.out.println("Produto removido com sucesso!");
+        }else{
+            System.out.println("Produto não encontrado na venda!");
         }
+        int count = 0;
     }
 
+    //----------Listar-produto-da-venda---------
     public void listarProdutos(){
         System.out.println();
         if(!produtosVenda.isEmpty()){
@@ -80,6 +83,7 @@ public class Venda {
         System.out.println();
     }
 
+    //----------Calcular-valor-total----------
     public double calcularValorTotal(){
         double soma = 0.0;
         for(Produto produto : produtosVenda){

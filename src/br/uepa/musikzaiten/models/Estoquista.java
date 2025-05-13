@@ -13,7 +13,6 @@ public class Estoquista extends Usuario {
     //----------Remover-Produto-----------
     public void removerProduto(int id){
         Estoque.removerProduto(id);
-        System.out.println("Produto removido com sucesso");
     }
 
     //----------Cadastrar-Produto-----------
@@ -24,8 +23,9 @@ public class Estoquista extends Usuario {
     }
 
     //------------Editar-Produto-----------
-    public void editarProduto(int id, String nome, double preco, int quantidade){
-        Estoque.editarProduto(id, nome, preco, quantidade);
+    public void editarProduto(int id){
+
+        Estoque.editarProduto(id);
         System.out.println();
     }
 

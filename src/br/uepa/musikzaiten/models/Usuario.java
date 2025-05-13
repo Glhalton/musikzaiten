@@ -5,13 +5,13 @@ public class Usuario {
     private int id;
     private String nome;
     private String cpf;
-    private String email;
+    private String telefone;
 
-    public Usuario(int id, String nome, String cpf, String email) {
+    public Usuario(int id, String nome, String cpf, String telefone) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
-        this.email = email;
+        this.telefone = telefone;
     }
 
     public int getId(){
@@ -38,12 +38,12 @@ public class Usuario {
         this.cpf = cpf;
     }
 
-    public String getEmail(){
-        return email;
+    public String getTelefone(){
+        return telefone;
     }
 
-    public void setEmail(String email){
-        this.email = email;
+    public void setTelefone(String telefone){
+        this.telefone = telefone;
     }
 
     public void fazerLogin(){

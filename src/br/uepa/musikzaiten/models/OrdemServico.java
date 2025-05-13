@@ -15,6 +15,7 @@ public class OrdemServico {
     private String modeloInstrumento;
     private String diagnosticoInstrumento;
     private double preco;
+    private String contatoCliente;
     private OrdemServicoStatus status;
 
     private Luthier luthier;
@@ -27,7 +28,8 @@ public class OrdemServico {
                         String modeloInstrumento,
                         String diagnosticoInstrumento,
                         double preco,
-                        OrdemServicoStatus status){
+                        OrdemServicoStatus status,
+                        String contatoCliente){
         this.id = id;
         this.nomeCliente = nomeCliente;
         this.nomeTecnico = nomeTecnico;
@@ -37,7 +39,10 @@ public class OrdemServico {
         this.diagnosticoInstrumento = diagnosticoInstrumento;
         this.preco = preco;
         this.status = status;
+        this.contatoCliente = contatoCliente;
     }
+
+
     public int getId() {
         return id;
     }
@@ -118,6 +123,11 @@ public class OrdemServico {
         this.luthier = luthier;
     }
 
+    public String getContatoCliente() {
+        return contatoCliente;
+    }
 
-
+    public void setContatoCliente(String contatoCliente) {
+        this.contatoCliente = contatoCliente;
+    }
 }
