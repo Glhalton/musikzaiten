@@ -1,4 +1,4 @@
-import br.uepa.musikzaiten.enums.OrdemServicoStatus;
+import br.uepa.musikzaiten.utils.OrdemServicoStatus;
 import br.uepa.musikzaiten.models.*;
 
 import java.time.LocalDate;
@@ -20,7 +20,6 @@ public class Main {
         int idProdVend = 1;
         
         int escolha = 0;
-
 
         while(escolha != 4){
 

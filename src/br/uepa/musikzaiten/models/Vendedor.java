@@ -43,6 +43,7 @@ public class Vendedor extends Usuario {
                 venda.getDataVenda().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
                 valorTotal);
 
+        vendas.add(venda);
         System.out.println();
     }
 

@@ -1,4 +1,4 @@
-package br.uepa.musikzaiten.enums;
+package br.uepa.musikzaiten.utils;
 
 public enum OrdemServicoStatus {
     PENDENTE, ATIVO, INATIVO

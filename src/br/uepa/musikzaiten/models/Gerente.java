@@ -41,6 +41,14 @@ public class Gerente extends Usuario {
 
     }
 
+    public void removerUsuarios(){
+
+    }
+
+    public void editarUsuarios(){
+
+    }
+
 
 
 

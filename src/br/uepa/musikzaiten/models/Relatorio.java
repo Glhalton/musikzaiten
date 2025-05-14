@@ -9,6 +9,7 @@ public class Relatorio {
     private LocalDate dataGeracao;
     private String tipo;
     private String conteudo;
+    private Gerente gerente;
 
     //Construtor
     public Relatorio(int id, LocalDate dataGeracao, String tipo, String conteudo) {
@@ -49,5 +50,13 @@ public class Relatorio {
 
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
+    }
+
+    public Gerente getGerente() {
+        return gerente;
+    }
+
+    public void setGerente(Gerente gerente) {
+        this.gerente = gerente;
     }
 }

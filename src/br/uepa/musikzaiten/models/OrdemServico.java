@@ -1,7 +1,7 @@
 package br.uepa.musikzaiten.models;
 
 
-import br.uepa.musikzaiten.enums.OrdemServicoStatus;
+import br.uepa.musikzaiten.utils.OrdemServicoStatus;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
