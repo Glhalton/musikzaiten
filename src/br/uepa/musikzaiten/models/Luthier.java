@@ -8,97 +8,92 @@ import java.util.Scanner;
 
 public class Luthier extends Usuario {
 
-    //----------Lista-de-Ordens-De-Serviço---------
+    //Associação Lista
     ArrayList<OrdemServico> ordemServicosList = new ArrayList<>();
 
-    //----------Construtor---------
+    //Construtor
     public Luthier(int id, String nome, String cpf, String email){
         super(id, nome, cpf, email);
     }
 
-    //--------------Métodos-------------
-    //----------Gerar-Ordem-Serviço---------
-    public void gerarOrdemServico(OrdemServico ordemServico) {
-        ordemServicosList.add(ordemServico);
+    //--------------MÉTODOS-------------
+    //Consultar Ordem de Serviço
+    public void ConsultarOrderServico(){
+        if(!ordemServicosList.isEmpty()){
+            for(OrdemServico ordemServico : ordemServicosList){
+                System.out.println(ordemServico);
+                System.out.println();
+            }
+        }else{
+            System.out.println("\nNão foram encontradas ordens de serviço\n");
+        }
     }
 
-    //----------Editar-Ordens-de-Serviço---------
-    public void editarOrdemServico(int id) {
-        Scanner ler = new Scanner(System.in);
-        int count = 0;
+    //Criar Ordem de Serviço
+    public void criarOrdemServico(OrdemServico ordemServico) {
+        ordemServicosList.add(ordemServico);
+        System.out.println("Ordem de serviço cadastrada com sucesso\n");
+    }
+
+    //Remover Ordem de Serviço
+    public void removerOrdemServico(int id){
+        boolean OrdemServicoEncontrada = false;
+        int indexOrdemServico = 0;
 
         for(OrdemServico os : ordemServicosList){
             if(os.getId() == id){
+                indexOrdemServico = ordemServicosList.indexOf(os);
+                OrdemServicoEncontrada = true;
+            }
+        }
+        if(OrdemServicoEncontrada){
+            ordemServicosList.remove(indexOrdemServico);
+            System.out.println("Ordem de Serviço removida com sucesso!\n");
+
+        } else{
+            System.out.println("Ordem de Serviço não encontrada!\n");
+        }
+    }
+
+
+
+    //Editar Ordem de Serviço
+    public void editarOrdemServico(int id) {
+        Scanner ler = new Scanner(System.in);
+        boolean ordemEncontrada = false;
+
+        for(OrdemServico os : ordemServicosList){
+            if(os.getId() == id){
+                ordemEncontrada = true;
 
                 System.out.print("Digite o nome do cliente: ");
-                String nomeCliente = ler.nextLine();
+                os.setNomeCliente(ler.nextLine());
                 System.out.print("Digite o contato do cliente: ");
-                String contatoCliente = ler.nextLine();
+                os.setContatoCliente(ler.nextLine());
                 System.out.print("Digite o nome do Instrumento: ");
-                String nomeInstrumento = ler.nextLine();
+                os.setNomeInstrumento(ler.nextLine());
                 System.out.print("Digite o nome do Modelo do Instrumento: ");
-                String modeloInstrumento = ler.nextLine();
+                os.setModeloInstrumento(ler.nextLine());
                 System.out.print("Digite o diagnostico: ");
-                String diagnostico = ler.nextLine();
+                os.setDiagnosticoInstrumento(ler.nextLine());
                 System.out.print("Digite o valor do serviço: ");
-                double valor = ler.nextDouble();
+                os.setPreco(ler.nextDouble());
                 ler.nextLine();
                 System.out.print("Digite o status(PENDENTE, ATIVO, INATIVO): ");
                 String statusInput = ler.nextLine().toUpperCase();
 
                 OrdemServicoStatus status = OrdemServicoStatus.valueOf(statusInput);
-
-                os.setNomeCliente(nomeCliente);
-                os.setContatoCliente(contatoCliente);
-                os.setNomeInstrumento(nomeInstrumento);
-                os.setModeloInstrumento(modeloInstrumento);
-                os.setDiagnosticoInstrumento(diagnostico);
-                os.setPreco(valor);
                 os.setStatus(status);
 
-                System.out.printf("A ordem de serviço %d foi editado com sucesso\n", id);
+                System.out.printf("A ordem de serviço %d foi editado com sucesso!\n", id);
 
-                count = 1;
             }
         }
-        if(count == 0){
-            System.out.println("Ordem de serviço não encontrada");
+        if(!ordemEncontrada){
+            System.out.println("Ordem de serviço não encontrada!");
         }
     }
 
-    //----------eonsultar-Ordens-de-Serviço---------
-    public void ConsultarOrderServico(){
-        if(!ordemServicosList.isEmpty()){
-            for(OrdemServico ordemServico : ordemServicosList){
-                System.out.printf("""
-                    Número da OS: %d
-                    Nome do Cliente: %s
-                    Contato do Cliente: %s
-                    Nome do Tecnico: %s
-                    Data de geração: %s
-                    Nome do Instrumento: %s
-                    Modelo do Instrumento: %s
-                    Diagnostico: %s
-                    Preço final: R$ %.2f
-                    Status: %s
-                    """, ordemServico.getId(),
-                        ordemServico.getNomeCliente(),
-                        ordemServico.getContatoCliente(),
-                        ordemServico.getNomeTecnico(),
-                        ordemServico.getDataGeracao().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
-                        ordemServico.getNomeInstrumento(),
-                        ordemServico.getModeloInstrumento(),
-                        ordemServico.getDiagnosticoInstrumento(),
-                        ordemServico.getPreco(),
-                        ordemServico.getStatus());
 
-                System.out.println();
-            }
-        }else{
-            System.out.println();
-            System.out.println("Não foram encontradas ordens de serviço");
-            System.out.println();
-        }
-    }
 
 }

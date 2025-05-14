@@ -4,12 +4,15 @@ import java.util.ArrayList;
 
 public class Gerente extends Usuario {
 
+    //Associação
     private ArrayList<Relatorio> relatorios = new ArrayList<>();
 
+    //Construtor
     public Gerente(int id, String nome, String cpf, String email){
         super(id, nome, cpf, email);
     }
 
+    //--------------MÉTODOS-------------
     public void consultarProduto(Produto produto){
 
     }

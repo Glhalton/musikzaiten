@@ -2,11 +2,13 @@ package br.uepa.musikzaiten.models;
 
 public class Usuario {
 
+    //Atributos
     private int id;
     private String nome;
     private String cpf;
     private String telefone;
 
+    //Construtor
     public Usuario(int id, String nome, String cpf, String telefone) {
         this.id = id;
         this.nome = nome;
@@ -14,6 +16,7 @@ public class Usuario {
         this.telefone = telefone;
     }
 
+    //Gets e Sets
     public int getId(){
         return id;
     }
@@ -49,6 +52,5 @@ public class Usuario {
     public void fazerLogin(){
         System.out.println("Usuário Fez Login");
     }
-
 
 }

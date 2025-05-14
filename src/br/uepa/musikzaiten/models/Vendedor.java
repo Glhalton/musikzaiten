@@ -5,12 +5,15 @@ import java.util.ArrayList;
 
 public class Vendedor extends Usuario {
 
+    //Associação
     private ArrayList<Venda> vendas = new ArrayList<>();
 
+    //Construtor
     public Vendedor(int id, String nome, String cpf, String email){
         super(id, nome, cpf, email);
     }
 
+    //Gets e Sets
     public ArrayList<Venda> getVendas() {
         return vendas;
     }
@@ -19,10 +22,13 @@ public class Vendedor extends Usuario {
         this.vendas = vendas;
     }
 
+    //--------------MÉTODOS-------------
+    //Consultar Produtos
     public void consultarProduto(){
         Estoque.consultarProduto();
     }
 
+    //Realizar Venda
     public void realizarVenda(Venda venda){
         double valorTotal = venda.calcularValorTotal();
 
@@ -40,6 +46,7 @@ public class Vendedor extends Usuario {
         System.out.println();
     }
 
+    //RealizarDevolução
     public void realizarDevolucao(Produto produto){
 
     }

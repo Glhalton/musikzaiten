@@ -4,19 +4,21 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Venda {
+
+    //Atributos
     private int id;
     private int idVendedor;
     private LocalDate dataVenda;
     ArrayList<Produto> produtosVenda = new ArrayList<>();
 
-    //------Construtor-------
+    //Construtor
     public Venda(int id, int idVendedor, LocalDate dataVenda){
         this.id = id;
         this.idVendedor = idVendedor;
         this.dataVenda = dataVenda;
     }
 
-    //------Gets-e-Sets-------
+    //Gets e Sets
     public int getId() {
         return id;
     }
@@ -42,23 +44,25 @@ public class Venda {
     }
 
 
-    //------------------Métodos-------------------
-    //----------Adicionar-produto-na-venda---------
+    ////--------------MÉTODOS-------------
+    //Adicionar Produto na Venda
     public void adicionarProduto(int id){
-        int count = 0;
+        boolean produtoEncontrado = false;
+
         for(Produto produto : Estoque.getProdutos()){
             if(produto.getId() == id){
+                produtoEncontrado = true;
+
                 produtosVenda.add(produto);
                 System.out.println("Produto adicionado na venda!");
-                count = 1;
             }
         }
-        if(count == 0){
+        if(!produtoEncontrado){
             System.out.println("Produto não encontrado no estoque!");
         }
     }
 
-    //----------Remover-produto-da-venda---------
+    //Remover Produto da Venda
     public void removerProduto(int posicao){
         posicao -= 1;
         if(posicao >= 0 && posicao < produtosVenda.size()){
@@ -67,10 +71,9 @@ public class Venda {
         }else{
             System.out.println("Produto não encontrado na venda!");
         }
-        int count = 0;
     }
 
-    //----------Listar-produto-da-venda---------
+    //listar Produtos da Venda
     public void listarProdutos(){
         System.out.println();
         if(!produtosVenda.isEmpty()){
@@ -83,7 +86,7 @@ public class Venda {
         System.out.println();
     }
 
-    //----------Calcular-valor-total----------
+    //Calcular Valor Total da Venda
     public double calcularValorTotal(){
         double soma = 0.0;
         for(Produto produto : produtosVenda){

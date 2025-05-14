@@ -1,11 +1,14 @@
 package br.uepa.musikzaiten.models;
 
 public class Produto {
+
+    //Atributos
     private int id;
     private String nome;
     private double preco;
     private int quantidadeEstoque;
 
+    //Construtor
     public Produto( int id, String nome, double preco, int quantidadeEstoque){
         this.id = id;
         this.nome = nome;
@@ -13,6 +16,8 @@ public class Produto {
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
+
+    //Gets e Sets
     public int getId() {
         return id;
     }
@@ -45,6 +50,7 @@ public class Produto {
         this.quantidadeEstoque = quantidadeEstoque;
     }
 
+    //Sobrescrita
     @Override
     public String toString() {
         return "ID: " + id + ", Nome: " + nome + ", Preço: R$ " + preco + ", Quantidade: " + quantidadeEstoque;

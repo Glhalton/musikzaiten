@@ -18,6 +18,7 @@ public class Main {
         int idProd = 1;
         int idVend = 1;
         int idProdVend = 1;
+        
         int escolha = 0;
 
 
@@ -36,9 +37,9 @@ public class Main {
             escolha = ler.nextInt();
 
             switch(escolha){
+
                 case 1:
                     int opcao1_1 = 0;
-
                     while(opcao1_1 != 5){
                         System.out.println("""
                             ================================
@@ -97,14 +98,14 @@ public class Main {
 
                                 System.out.println();
                                 estoquista.consultarProduto();
-                                System.out.println();
+
                                 break;
 
                             case 5:
                                 break;
+
                             default:
                                 System.out.println("Escolha uma opção válida");
-
 
                         }
                     }
@@ -186,15 +187,16 @@ public class Main {
                     break;
                 case 3:
                     int opcao3_1 = 0;
-                    while(opcao3_1 != 4){
+                    while(opcao3_1 != 5){
                         System.out.println("""
                             ================================
                                MENU DE ORDENS DE SERVIÇO
                             ================================
-                            [1] Gerar Ordem de Serviço
-                            [2] Consultar Ordens de Serviços
-                            [3] Editar Ordens de Serviços
-                            [4] Voltar ao menu principal
+                            [1] - Gerar Ordem de Serviço
+                            [2] - Remover Ordem de Serviço
+                            [3] - Consultar Ordens de Serviços
+                            [4] - Editar Ordem de Serviço
+                            [5] - Voltar ao menu principal
                             ================================""");
                         opcao3_1 = ler.nextInt();
                         ler.nextLine();
@@ -218,7 +220,7 @@ public class Main {
 
                                 OrdemServicoStatus status = OrdemServicoStatus.valueOf(statusInput);
 
-                                luthier.gerarOrdemServico(new OrdemServico(
+                                luthier.criarOrdemServico(new OrdemServico(
                                         idOS,
                                         nomeCliente,
                                         luthier.getNome(),
@@ -233,16 +235,24 @@ public class Main {
                                 idOS++;
 
                                 break;
+
                             case 2:
+                                System.out.print("Digite o id da ordem de serviço a ser removida: ");
+                                int idOrdemServico = ler.nextInt();
+
+                                luthier.removerOrdemServico(idOrdemServico);
+                                break;
+
+                            case 3:
                                 luthier.ConsultarOrderServico();
                                 break;
-                            case 3:
+                            case 4:
                                 System.out.print("Digite o id da ordem de serviço: ");
-                                int idOrdemServico = ler.nextInt();
-                                luthier.editarOrdemServico(idOrdemServico);
+                                int idOrdemServicoEditado = ler.nextInt();
+                                luthier.editarOrdemServico(idOrdemServicoEditado);
                                 System.out.println();
                                 break;
-                            case 4:
+                            case 5:
                                 break;
                             default:
                                 System.out.println("Escolha uma opção válida");

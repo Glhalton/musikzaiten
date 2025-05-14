@@ -4,9 +4,11 @@ package br.uepa.musikzaiten.models;
 import br.uepa.musikzaiten.enums.OrdemServicoStatus;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 public class OrdemServico {
+    //Atributos
     private int id;
     private String nomeCliente;
     private String nomeTecnico;
@@ -18,8 +20,10 @@ public class OrdemServico {
     private String contatoCliente;
     private OrdemServicoStatus status;
 
+    //Associação
     private Luthier luthier;
 
+    //Construtor
     public OrdemServico(int id,
                         String nomeCliente,
                         String nomeTecnico,
@@ -42,7 +46,7 @@ public class OrdemServico {
         this.contatoCliente = contatoCliente;
     }
 
-
+    //Gets e Sets
     public int getId() {
         return id;
     }
@@ -129,5 +133,32 @@ public class OrdemServico {
 
     public void setContatoCliente(String contatoCliente) {
         this.contatoCliente = contatoCliente;
+    }
+
+    //Sobrescrita
+    @Override
+   public String toString() {
+        return String.format("""
+                    Número da OS: %d
+                    Nome do Cliente: %s
+                    Contato do Cliente: %s
+                    Nome do Tecnico: %s
+                    Data de geração: %s
+                    Nome do Instrumento: %s
+                    Modelo do Instrumento: %s
+                    Diagnostico: %s
+                    Preço final: R$ %.2f
+                    Status: %s
+                    """,
+                        id,
+                        nomeCliente,
+                        contatoCliente,
+                        nomeTecnico,
+                        dataGeracao.format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                        nomeInstrumento,
+                        modeloInstrumento,
+                        diagnosticoInstrumento,
+                        preco,
+                        status);
     }
 }
